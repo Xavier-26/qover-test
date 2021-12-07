@@ -1,0 +1,15 @@
+const express = require('express');
+const app = express();
+const {forceLogin} = require("../config/auth.js")
+const {getPrice} = require("../computation.js")
+
+
+app.get('/price', forceLogin, (req, res) => {
+  const {age, car, price} = req.query
+  const policyPrice = getPrice(age, car, price)
+  if (policyPrice == null)
+    res.status(500).end();
+  res.render('results', {policyPrice: policyPrice});
+})
+
+module.exports = app;

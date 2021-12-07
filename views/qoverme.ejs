@@ -1,0 +1,25 @@
+<h1> Qover me! </h1>
+
+<div>
+  <form action="/policies/price" method="GET">
+    <div>
+      <label for="age">Age of the driver</label>
+      <input type="string" name="age" placeholder="25" />
+    </div>
+    <div>
+      <label for="car">Car</label>
+      <select name="car" id="car">
+        <option value="AUDI">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="PORSCHE">Porsche</option>
+      </select>
+    <div>
+      <label for="price">Purchase price</label>
+      <input type="string" name="price" placeholder="10.000" />
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Get a price</button>
+
+  </form>
+
+  <a href="/users/logout">Logout</a>
+</div>
