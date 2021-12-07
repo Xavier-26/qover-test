@@ -8,10 +8,18 @@ app.get('/price', forceLogin, (req, res) => {
   const {age, car, price} = req.query
   try {
     const policyPrice = getPrice(age, car, price)
+    res.render('results', {policyPrice});
   } catch(e) {
     res.render('qoverme', {message: e})
   }
-  res.render('results', {policyPrice});
+})
+
+app.get('/select-global', (_, res) => {
+  res.send('Global plan selected!');
+})
+
+app.get('/select-universal', (_, res) => {
+  res.send('Universal plan selected!');
 })
 
 app.get('/testme', (_, res) => {

@@ -1,9 +1,41 @@
-<h1> Qover me! </h1>
-  <%- policyPrice.universalPrice %>
-  <%- policyPrice.globalPrice %>
+<h1> Select a plan </h1>
 
-  <%- policyPrice.universalPriceMonthly %>
-  <%- policyPrice.globalPriceMonthly %>
-
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Global plan
+        </td>
+        <td>
+          <%- Intl.NumberFormat('fr-FR', { style: 'currency' , currency: 'EUR' }).format(policyPrice.universalPrice) %>
+        </td>
+        <td>
+          (<%- Intl.NumberFormat('fr-FR', { style: 'currency' , currency: 'EUR'
+            }).format(policyPrice.universalPriceMonthly) %> monthly)
+        </td>
+        <td>
+          <a href="/policies/select-global">Select me</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Universal plan
+        </td>
+        <td>
+          <%- Intl.NumberFormat('fr-FR', { style: 'currency' , currency: 'EUR' }).format(policyPrice.globalPrice) %>
+        </td>
+        <td>
+          (<%- Intl.NumberFormat('fr-FR', { style: 'currency' , currency: 'EUR'
+            }).format(policyPrice.globalPriceMonthly) %> monthly)
+        </td>
+        <td>
+          <a href="/policies/select-universal">Select me</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
   <a href="/users/logout">Logout</a>
 </div>
