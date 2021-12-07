@@ -25,7 +25,7 @@ const getPrice = function (age, car, price) {
   }
 
   const globalPrice = basePrice;
-  const universalPrice = basePrice * variable;
+  const universalPrice = basePrice + price * variable;
   const globalPriceMonthly = globalPrice / 12;
   const universalPriceMonthly = universalPrice / 12;
 
@@ -44,9 +44,9 @@ module.exports = {
       }
       return actual == null;
     };
-    const testGP = function (expected, age, car, price) {
+    const testLambda = lambda => (expected, age, car, price) => {
       actual = getPrice(age, car, price);
-      if (actual.globalPrice != expected) {
+      if (lambda(actual) != expected) {
         console.log("Test failed for ", age, car, price);
         console.log(expected, " <> ", actual);
         return false;
@@ -54,6 +54,12 @@ module.exports = {
         return true;
       }
     };
+    const getGP = e => e.globalPrice;
+    const testGP = testLambda(getGP);
+    const getUP = e => e.universalPrice;
+    const testUP = testLambda(getUP);
+    const getUPM = e => e.universalPriceMonthly;
+    const testUPM = testLambda(getUPM);
     const p = "PORSCHE";
     const a = "AUDI";
     const b = "BMW";
@@ -67,6 +73,8 @@ module.exports = {
     allPassed &= testGP(250, 20, a, 15000);
     allPassed &= testGP(500, 30, p, 15000);
     allPassed &= testGP(150, 30, b, 150000);
+    allPassed &= testUP(104150.0, 30, b, 100000);
+    allPassed &= testUPM(8679.6, 30, b, 100005);
     return allPassed;
   }
 }
