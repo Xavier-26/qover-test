@@ -9,7 +9,7 @@ app.get('/price', forceLogin, (req, res) => {
   const policyPrice = getPrice(age, car, price)
   if (policyPrice == null)
     res.status(500).end();
-  res.render('results', {policyPrice: policyPrice});
+  res.render('results', {policyPrice});
 })
 
 module.exports = app;
