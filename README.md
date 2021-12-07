@@ -1,4 +1,6 @@
+## Install
+`npm install`
 ## Run server
 `sudo mongod`
-`node app.js`
+`npm start`
 
