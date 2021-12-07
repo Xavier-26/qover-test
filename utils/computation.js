@@ -1,10 +1,10 @@
 const getPrice = function (age, car, price) {
   if (age < 18)
-    return null
+    throw "Sorry! The driver is too young"
   if (car == "PORSCHE" && age < 25)
-    return null
+    throw "Sorry! We can not accept this particular risk"
   if (price < 5000)
-    return null
+    throw "Sorry! The price of the car is too low"
   let basePrice = 250
   let variable = 1.03;
   switch (car) {
@@ -37,15 +37,22 @@ module.exports = {
   testMe: function () {
     let allPassed = true;
     const testNull = function (age, car, price) {
-      actual = getPrice(age, car, price);
-      if (actual != null) {
-        console.log("Test failed for ", age, car, price)
-        console.log(null, " <> ", actual);
+      try {
+        actual = getPrice(age, car, price);
+      } catch (e) {
+        return true;
       }
-      return actual == null;
+      console.log("Test failed for ", age, car, price)
+      console.log(null, " <> ", actual);
+      return false;
     };
     const testLambda = lambda => (expected, age, car, price) => {
-      actual = getPrice(age, car, price);
+      try {
+        actual = getPrice(age, car, price);
+      } catch (e) {
+        console.log("Test failed for ", age, car, price);
+        return false
+      }
       if (lambda(actual) != expected) {
         console.log("Test failed for ", age, car, price);
         console.log(expected, " <> ", actual);

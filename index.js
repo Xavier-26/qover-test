@@ -49,7 +49,7 @@ app.use((req,res,next)=> {
 })
 
 app.get('/', forceLogin, (req, res) => {
-  res.render('qoverme');
+  res.render('qoverme', {message: ""});
 });
 
 app.use('/users', require('./routes/users'));
