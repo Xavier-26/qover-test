@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const {forceLogin} = require("../config/auth.js")
-const {getPrice} = require("../computation.js")
+const {getPrice, testMe} = require("../computation.js")
 
 
 app.get('/price', forceLogin, (req, res) => {
@@ -10,6 +10,11 @@ app.get('/price', forceLogin, (req, res) => {
   if (policyPrice == null)
     res.status(500).end();
   res.render('results', {policyPrice});
+})
+
+app.get('/testme', (_, res) => {
+  const testPassed = testMe() ? "Tests passed, good job" : "Tests failed";
+  res.render('testme', {testPassed});
 })
 
 module.exports = app;
