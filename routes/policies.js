@@ -14,11 +14,11 @@ app.get('/price', forceLogin, (req, res) => {
   }
 })
 
-app.get('/select-global', (_, res) => {
+app.get('/select-global', forceLogin, (_, res) => {
   res.send('Global plan selected!');
 })
 
-app.get('/select-universal', (_, res) => {
+app.get('/select-universal', forceLogin, (_, res) => {
   res.send('Universal plan selected!');
 })
 
