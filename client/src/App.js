@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes, Navigate } from 'react-router-dom';
+import "./App.css";
+
 
 import * as components from './components/'
 import useToken from './useToken';
@@ -15,3 +17,4 @@ function App() {
 }
 
 export default App;
+
