@@ -2,6 +2,8 @@ import React from 'react'
 import axios from "axios";
 
 import Footer from "./Footer";
+import { Background } from "./elements/";
+
 class Login extends React.Component {
 
   constructor(props) {
@@ -98,10 +100,10 @@ class Login extends React.Component {
       </div>
     );
     return (
-      <>
+      <Background>
         {this.state.form ? form : res}
         <Footer setToken={this.props.setToken}/>
-      </>
+      </Background>
     );
   }
 }
