@@ -4,7 +4,7 @@ const User = require("../models/user.js");
 
 module.exports = function (passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'username' }, (username, password, done) => {
+    new LocalStrategy({ usernameField: 'username', passwordField: 'password' }, (username, password, done) => {
       User.findOne({ username: username })
         .exec((err, user) => {
           if (!user) {

@@ -1,4 +1,6 @@
 const getPrice = function (age, car, price) {
+  if (!age || !car || !price)
+      throw "Invalid parameters"
   if (age < 18)
     throw "Sorry! The driver is too young"
   if (car == "PORSCHE" && age < 25)

@@ -7,10 +7,10 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const User = require("./models/user.js");
 const path = require('path');
+const cors = require('cors')
+
 
 require("./config/passport")(passport)
-
-const {forceLogin} = require("./config/auth.js")
 
 const dbUrl = "mongodb://localhost/qover";
 mongoose.connect(dbUrl,{useNewUrlParser: true, useUnifiedTopology : true})
@@ -32,7 +32,6 @@ mongoose.connect(dbUrl,{useNewUrlParser: true, useUnifiedTopology : true})
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(expressEjsLayout);
-app.use(express.urlencoded({extended : false}));
 app.use(session({
     secret : 'secret',
     resave : true,
@@ -47,10 +46,10 @@ app.use((req,res,next)=> {
     res.locals.error  = req.flash('error');
     next();
 })
+app.use(express.json());
 
-app.get('/', forceLogin, (req, res) => {
-  res.render('qoverme', {message: ""});
-});
+app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
+app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
 
 app.use('/users', require('./routes/users'));
 app.use('/policies', require('./routes/policies'));
@@ -58,3 +57,4 @@ app.use('/policies', require('./routes/policies'));
 app.listen(8000, () => {
   console.log('Server is running at port 8000');
 });
+
