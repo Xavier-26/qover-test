@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "client": "cd client && npm start",
+    "backend": "node index.js",
+    "start": "concurrently \"npm run backend\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
