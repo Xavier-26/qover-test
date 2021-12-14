@@ -161,7 +161,7 @@ class Login extends React.Component {
               <div>Global price</div>
               {this.state.displayMonthly ? (
                 <div>{this.state.policyPrice &&
-                  this.formatPrice(this.state.policyPrice["universalPriceMonthly"])} monthly</div>
+                  this.formatPrice(this.state.policyPrice["globalPriceMonthly"])} monthly</div>
               ) : (
                 <div>{this.state.policyPrice &&
                   this.formatPrice(this.state.policyPrice["globalPrice"])} yearly</div>
@@ -173,10 +173,10 @@ class Login extends React.Component {
               <div>Universal plan</div>
               {this.state.displayMonthly ? (
                 <div>{this.state.policyPrice &&
-                  this.formatPrice(this.state.policyPrice["globalPriceMonthly"])} monthly</div>
+                  this.formatPrice(this.state.policyPrice["universalPriceMonthly"])} monthly</div>
               ) : (
                 <div>{this.state.policyPrice &&
-                  this.formatPrice(this.state.policyPrice["globalPrice"])} yearly</div>
+                  this.formatPrice(this.state.policyPrice["universalPrice"])} yearly</div>
               )}
               <a href="/policies/select-universal">Select me</a>
             </RightColumn>

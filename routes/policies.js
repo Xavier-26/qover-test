@@ -22,7 +22,7 @@ app.get('/select-universal', (_, res) => {
 
 app.get('/testme', (_, res) => {
   const testPassed = testMe() ? "Tests passed, good job" : "Tests failed";
-  res.render('testme', {testPassed});
+  res.send(testPassed);
 })
 
 module.exports = app;
