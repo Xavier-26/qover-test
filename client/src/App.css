@@ -1,9 +1,9 @@
-body > #root > div {
+body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom right, #317bda -6%, #33c3c8);
 }

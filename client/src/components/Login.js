@@ -79,7 +79,6 @@ const AccessText = styled.text`
 const Qover2017 = styled.span`
   width: 74px;
   height: 17px;
-  margin: 16px 569px 0 557px;
   font-family: Roboto;
   font-size: 12px;
   font-weight: normal;

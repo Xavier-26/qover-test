@@ -5,5 +5,5 @@ export const Background = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-image: linear-gradient(122deg, #317bda -6%, #33c3c8);
+  flex-grow: 1;
 `;

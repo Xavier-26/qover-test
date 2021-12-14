@@ -11,7 +11,6 @@ const CenterRectangle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 435px;
   height: 370px;
   padding: 60px 222px 60px 220px;
   border-radius: 2px;
